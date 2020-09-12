@@ -1,0 +1,27 @@
+{
+  "name": "hrr47-mvp",
+  "version": "1.0.0",
+  "description": "A virtual Magic 8 Ball to answer your most pressing questions.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "nodemon server/index.js",
+    "start": "node server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meredith-myers/hrr47-mvp.git"
+  },
+  "author": "Meredith Myers",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/meredith-myers/hrr47-mvp/issues"
+  },
+  "homepage": "https://github.com/meredith-myers/hrr47-mvp#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
