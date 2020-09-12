@@ -10,12 +10,18 @@ class App extends React.Component {
 
   render() {
     return (
-      <h1>Magic 8 Ball</h1>
-      <form method="post">
-        <label for="question">Type Your Question Below</label>
-        <input type="text" id="question" name="question"></input>
-        <input type="submit" value="Submit"></input>
-      </form>
+      <div>
+        <div id="title">
+          <h1>Magic 8 Ball</h1>
+        </div>
+        <div id="form">
+          <form method="post">
+            <label for="question">Type Your Question Below</label>
+            <input type="text" id="question" name="question"></input>
+            <input type="submit" value="Submit"></input>
+          </form>
+        </div>
+      </div>
     )
   }
 }
