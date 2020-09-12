@@ -6,6 +6,22 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      question: '',
+      response: ''
+    }
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({question: event.target.value});
+  }
+
+  handleSubmit(event) {
+    alert('A question was submitted: ' + this.state.question);
+    event.preventDefault();
   }
 
   render() {
@@ -14,13 +30,13 @@ class App extends React.Component {
         <div id="title">
           <h1>Magic 8 Ball</h1>
         </div>
-        <div id="form">
-          <form method="post">
-            <label for="question">Type Your Question Below</label>
-            <input type="text" id="question" name="question"></input>
-            <input type="submit" value="Submit"></input>
-          </form>
-        </div>
+        <form onSubmit={this.handleSubmit}>
+        <label>
+          Please Enter Your Question
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
       </div>
     )
   }
