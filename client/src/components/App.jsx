@@ -7,6 +7,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
+      storedQuestion: '',
       question: '',
       response: ''
     }
@@ -16,12 +17,25 @@ class App extends React.Component {
   }
 
   handleChange(event) {
-    this.setState({question: event.target.value});
+    this.setState({storedQuestion: event.target.value});
   }
 
   handleSubmit(event) {
-    alert('A question was submitted: ' + this.state.question);
     event.preventDefault();
+    axios.post('/')
+    .then((response) => {
+      console.log(response);
+      this.setState({
+        question: this.state.storedQuestion,
+        response: response.data,
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+    // alert('A question was submitted: ' + this.state.question);
+
+    event.target.reset();
   }
 
   render() {
@@ -32,11 +46,13 @@ class App extends React.Component {
         </div>
         <form onSubmit={this.handleSubmit}>
         <label>
-          Please Enter Your Question
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
+          Please Enter Your Question<br></br>
+          <input type="text" id="questionField" value={this.state.value} onChange={this.handleChange} />
         </label>
         <input type="submit" value="Submit" />
       </form>
+      {this.state.question}<br></br>
+      {this.state.response}
       </div>
     )
   }
