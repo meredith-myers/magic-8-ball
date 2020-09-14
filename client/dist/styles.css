@@ -1,0 +1,18 @@
+#container {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#ball {
+  background-color: black;
+  height: 400px;
+  width: 400px;
+  border-radius: 50%;
+  margin: 0 auto;
+  color: white;
+}
+
+#question {
+  padding-top: 35%;
+}
