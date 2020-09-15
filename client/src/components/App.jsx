@@ -9,11 +9,17 @@ class App extends React.Component {
     this.state = {
       storedQuestion: '',
       question: '',
-      response: ''
+      response: '',
+      shaking: false
     }
 
+    this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleClick(event) {
+    this.setState({shaking: true});
   }
 
   handleChange(event) {
@@ -21,19 +27,20 @@ class App extends React.Component {
   }
 
   handleSubmit(event) {
+    console.log(this.state.shaking);
     event.preventDefault();
     axios.post('/')
     .then((response) => {
-      console.log(response);
       this.setState({
         question: this.state.storedQuestion,
         response: response.data,
+        shaking: false
       });
+      console.log(this.state.shaking);
     })
     .catch((error) => {
       console.log(error);
     });
-
     event.target.reset();
   }
 
@@ -48,7 +55,7 @@ class App extends React.Component {
             Please Enter Your Question<br></br>
             <input type="text" id="questionField" value={this.state.value} onChange={this.handleChange} />
           </label>
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Submit" onClick = {this.handleClick}/>
         </form>
 
         <div id="ball">
