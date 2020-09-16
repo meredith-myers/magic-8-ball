@@ -1,9 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
-const responses = ['Yes', 'No', 'Maybe', 'Why not?', 'What does your heart tell you?', 'Obviously', 'It will be so, and the cost will be great', 'Never, if only for our continued survival as a species', 'Your answer is written in dust on the dark side of the moon', 'Gouge thine eyes to see the truth. You will be glad you did'];
+const responses = ['Yes', 'No', 'Maybe', 'Why not?', 'What does your heart tell you?', 'Obviously', 'It will be so, and the cost will be great', 'Never, if only for our continued survival as a species', 'Your answer is written in dust on the dark side of the moon'/*, 'Gouge thine eyes to see the truth. You will be glad you did'*/, ];
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
